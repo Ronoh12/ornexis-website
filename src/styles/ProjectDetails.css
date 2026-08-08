@@ -1,0 +1,262 @@
+.project-section{
+    max-width:1100px;
+    margin:40px auto 80px;
+    padding:0 20px;
+}
+
+.project-section h2{
+    font-size:38px;
+    margin-bottom:20px;
+    color:#fff;
+}
+
+.project-section p{
+    color:#9eb0c7;
+    line-height:1.9;
+    font-size:18px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    margin-top:40px;
+}
+
+.project-card{
+    background:#101d33;
+    border:1px solid rgba(0,212,255,.15);
+    border-radius:18px;
+    padding:30px;
+}
+
+.project-card h3{
+    color:white;
+    margin-bottom:15px;
+}
+
+.project-card ul{
+    padding-left:20px;
+}
+
+.project-card li{
+    color:#9eb0c7;
+    margin-bottom:10px;
+}
+
+.project-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.project-tech-item {
+  padding: 20px 22px;
+
+  color: #dce8f5;
+  font-weight: 600;
+
+  background: #101d33;
+  border: 1px solid rgba(0, 212, 255, 0.14);
+  border-radius: 14px;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-tech-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.project-timeline {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+
+  padding: 26px 28px;
+
+  background: #101d33;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+}
+
+.timeline-number {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #00d4ff;
+  font-size: 15px;
+  font-weight: 800;
+
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 14px;
+}
+
+.timeline-item h3 {
+  color: #ffffff;
+  font-size: 21px;
+  margin: 2px 0 8px;
+}
+
+.timeline-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.project-cta {
+  width: min(100% - 48px, 1100px);
+  margin: 100px auto 120px;
+  padding: 70px 40px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 212, 255, 0.12),
+      transparent 65%
+    ),
+    #101d33;
+
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 26px;
+}
+
+.project-cta-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.project-cta h2 {
+  color: #ffffff;
+  font-size: 44px;
+  line-height: 1.12;
+  margin: 18px 0 20px;
+}
+
+.project-cta p {
+  color: #9eb0c7;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.project-cta-button {
+  display: inline-block;
+
+  padding: 18px 34px;
+
+  color: #06111f;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+
+  background: #00d4ff;
+  border-radius: 10px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-cta-button:hover {
+  transform: translateY(-3px);
+  background: #24dcff;
+  box-shadow: 0 14px 35px rgba(0, 212, 255, 0.22);
+}
+
+@media (max-width: 900px) {
+  .project-tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .project-cta {
+    padding: 50px 24px;
+  }
+
+  .project-cta h2 {
+    font-size: 34px;
+  }
+}
+
+/* ========================= */
+/* Challenge Image Layout */
+/* ========================= */
+
+.project-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.project-two-column {
+  margin-bottom: 90px;
+}
+
+.project-image {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  background: #101d33;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+}
+
+@media (max-width: 900px) {
+  .project-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .project-image img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-image img {
+    height: 280px;
+  }
+}
+
