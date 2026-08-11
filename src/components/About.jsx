@@ -4,11 +4,12 @@ import {
   Cloud,
   Lock,
 } from "lucide-react";
+
 import "../styles/About.css";
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
 
       <div className="container">
 
@@ -19,41 +20,45 @@ function About() {
           </p>
 
           <h2>
-            Technology solutions
+            Technology built
             <br />
-            built around your business.
+            around your business.
           </h2>
 
           <p className="about-text">
-            ORNEXIS Technologies helps organizations
-            secure their infrastructure, modernize
-            operations and accelerate growth through
-            innovative IT solutions, cybersecurity
-            and digital transformation.
+            ORNEXIS Technologies is a trusted technology partner helping
+            organizations build secure, reliable and future-ready digital
+            environments.
+          </p>
+
+          <p className="about-text">
+            We combine cybersecurity, infrastructure, cloud, digital solutions
+            and practical technology guidance to solve real business challenges
+            and support long-term growth.
           </p>
 
         </div>
 
         <div className="about-right">
 
-            <div className="about-circle">
-                <ShieldCheck size={70} />
-            </div>
+          <div className="about-circle">
+            <ShieldCheck size={70} />
+          </div>
 
-            <div className="about-card card1">
-                <Server size={22} />
-                <span>Secure Infrastructure</span>
-            </div>
+          <div className="about-card card1">
+            <Server size={22} />
+            <span>Reliable Infrastructure</span>
+          </div>
 
-            <div className="about-card card2">
-                <Cloud size={22} />
-                <span>Cloud Solutions</span>
-            </div>
+          <div className="about-card card2">
+            <Cloud size={22} />
+            <span>Scalable Technology</span>
+          </div>
 
-            <div className="about-card card3">
-                <Lock size={22} />
-                <span>Cybersecurity</span>
-            </div>
+          <div className="about-card card3">
+            <Lock size={22} />
+            <span>Security by Design</span>
+          </div>
 
         </div>
 

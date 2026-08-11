@@ -42,3 +42,156 @@ body::-webkit-scrollbar {
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
+
+/* =========================================
+   ORNEXIS - FINAL HOMEPAGE SPACING SYSTEM
+========================================= */
+
+/*
+  Major homepage sections should use a consistent
+  vertical rhythm. Individual components can still
+  override this where necessary.
+*/
+
+:root {
+  --section-space-desktop: 64px;
+  --section-space-tablet: 58px;
+  --section-space-mobile: 48px;
+}
+
+
+/* Main homepage sections */
+
+.services,
+.about,
+.why-choose,
+.industries,
+.solutions,
+.portfolio,
+.cta-section {
+  scroll-margin-top: 110px;
+}
+
+
+/* Prevent unnecessary giant gaps between sections */
+
+.services,
+.about,
+.why-choose,
+.industries,
+.solutions,
+.portfolio {
+  padding-top: var(--section-space-desktop);
+  padding-bottom: var(--section-space-desktop);
+}
+
+
+/* Keep section headings compact and consistent */
+
+.services-heading,
+.about-heading,
+.why-choose-header,
+.industries-heading,
+.solutions-heading,
+.portfolio-heading {
+  margin-bottom: 42px;
+}
+
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+  .services,
+  .about,
+  .why-choose,
+  .industries,
+  .solutions,
+  .portfolio {
+    padding-top: var(--section-space-tablet);
+    padding-bottom: var(--section-space-tablet);
+  }
+
+  .services-heading,
+  .about-heading,
+  .why-choose-header,
+  .industries-heading,
+  .solutions-heading,
+  .portfolio-heading {
+    margin-bottom: 44px;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .services,
+  .about,
+  .why-choose,
+  .industries,
+  .solutions,
+  .portfolio {
+    padding-top: var(--section-space-mobile);
+    padding-bottom: var(--section-space-mobile);
+  }
+
+  .services-heading,
+  .about-heading,
+  .why-choose-header,
+  .industries-heading,
+  .solutions-heading,
+  .portfolio-heading {
+    margin-bottom: 36px;
+  }
+
+}
+
+/* =========================================
+   ORNEXIS - FINAL SECTION RHYTHM
+========================================= */
+
+/* Keep most sections comfortably separated */
+.services,
+.about,
+.why-choose,
+.industries,
+.solutions {
+  scroll-margin-top: 100px;
+}
+
+/* Solutions and showcase belong closely together */
+.solutions {
+  padding-bottom: 48px;
+}
+
+.solution-showcase,
+.showcase-section {
+  padding-top: 48px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .solutions {
+    padding-bottom: 42px;
+  }
+
+  .solution-showcase,
+  .showcase-section {
+    padding-top: 42px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .solutions {
+    padding-bottom: 36px;
+  }
+
+  .solution-showcase,
+  .showcase-section {
+    padding-top: 36px;
+  }
+}

@@ -1,3 +1,5 @@
+import { NavLink, Link } from "react-router-dom";
+
 import "../styles/Navbar.css";
 import logo from "../assets/Tech_Ornexis.png";
 
@@ -5,39 +7,66 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a className="navbar-brand" href="#home">
+
+        <Link to="/" className="navbar-logo">
           <img
-            className="navbar-logo"
             src={logo}
             alt="ORNEXIS Technologies"
+            className="navbar-logo-image"
           />
-        </a>
-
+        </Link>
         <ul className="navbar-links">
+
           <li>
-            <a href="#home" className="active">Home</a>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
+            >
+              Home
+            </NavLink>
           </li>
 
           <li>
-            <a href="#services">Services</a>
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
+            >
+              Services
+            </NavLink>
           </li>
 
           <li>
-            <a href="#about">About</a>
+            <a href="/#about">
+              About
+            </a>
           </li>
 
           <li>
-            <a href="#solutions">Solutions</a>
+            <a href="/#solutions">
+              Solutions
+            </a>
           </li>
 
           <li>
-            <a href="#contact">Contact</a>
+            <a href="/#contact">
+              Contact
+            </a>
           </li>
+
         </ul>
 
-        <a className="navbar-button" href="#contact">
+        <a
+          className="navbar-button"
+          href="/#contact"
+        >
           Get a Quote
         </a>
+
       </div>
     </nav>
   );

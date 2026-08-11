@@ -7,24 +7,31 @@ import {
   Printer,
 } from "lucide-react";
 
+import { useState } from "react";
+
 import "../styles/Solutions.css";
 
 const solutions = [
   {
     icon: ShieldCheck,
-    title: "Cybersecurity",
-    text: "Protect your systems, users and data with practical security solutions.",
+    title: "Cybersecurity Solutions",
+    shortTitle: "Cybersecurity",
+    text:
+      "Strengthen your security posture with practical controls that protect systems, users and business data.",
     items: [
-      "Security Audits",
-      "Vulnerability Assessments",
+      "Security Assessments",
+      "Vulnerability Management",
       "Endpoint Protection",
-      "Risk Management",
+      "Risk & Security Reviews",
     ],
   },
+
   {
     icon: Cloud,
-    title: "Cloud Solutions",
-    text: "Modernize operations with secure, scalable cloud services.",
+    title: "Cloud & Collaboration",
+    shortTitle: "Cloud",
+    text:
+      "Build secure, flexible cloud environments that support modern teams, communication and business operations.",
     items: [
       "Microsoft 365",
       "Google Workspace",
@@ -32,43 +39,55 @@ const solutions = [
       "AWS & Azure",
     ],
   },
+
   {
     icon: Network,
-    title: "Networking",
-    text: "Build reliable and secure connectivity for your business.",
+    title: "Network & Infrastructure",
+    shortTitle: "Infrastructure",
+    text:
+      "Create secure and reliable connectivity that supports everyday operations, users and business growth.",
     items: [
       "Office Networking",
-      "Wi-Fi Installation",
+      "Secure Wi-Fi",
       "Structured Cabling",
-      "VPN Solutions",
+      "VPN & Remote Access",
     ],
   },
+
   {
     icon: Headphones,
-    title: "Managed IT Support",
-    text: "Keep your business systems running with responsive IT support.",
+    title: "Managed IT & Support",
+    shortTitle: "IT Support",
+    text:
+      "Keep your technology environment stable, supported and available with responsive technical assistance.",
     items: [
       "Remote Support",
       "On-site Support",
-      "Maintenance",
+      "System Maintenance",
       "User & Device Support",
     ],
   },
+
   {
     icon: Code2,
-    title: "Web & Software",
-    text: "Create modern digital tools that improve operations and customer experience.",
+    title: "Web & Business Systems",
+    shortTitle: "Web & Systems",
+    text:
+      "Build digital platforms and business tools designed to improve operations, visibility and customer experience.",
     items: [
       "Company Websites",
       "Business Systems",
-      "POS Systems",
+      "POS Solutions",
       "Custom Software",
     ],
   },
+
   {
     icon: Printer,
-    title: "Branding & Printing",
-    text: "Support your business identity with professional branding solutions.",
+    title: "Branding & Print",
+    shortTitle: "Branding",
+    text:
+      "Build a stronger business identity through professional branding, printed materials and branded merchandise.",
     items: [
       "Business Cards",
       "Signage",
@@ -79,12 +98,21 @@ const solutions = [
 ];
 
 function Solutions() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const activeSolution = solutions[activeIndex];
+  const ActiveIcon = activeSolution.icon;
+
   return (
     <section className="solutions" id="solutions">
+
       <div className="solutions-container">
 
         <div className="solutions-heading">
-          <p className="section-tag">OUR SOLUTIONS</p>
+
+          <p className="section-tag">
+            OUR SOLUTIONS
+          </p>
 
           <h2>
             Complete technology solutions
@@ -92,41 +120,91 @@ function Solutions() {
             for modern businesses.
           </h2>
 
-          <p>
-            ORNEXIS brings together cybersecurity, cloud, infrastructure,
-            support and digital services under one trusted technology partner.
+          <p className="solutions-intro">
+            From protection and connectivity to cloud, support and digital
+            platforms, ORNEXIS brings together the technology capabilities
+            businesses need to operate securely and grow with confidence.
           </p>
+
         </div>
 
-        <div className="solutions-grid">
-          {solutions.map((solution) => {
+        <div className="solutions-tabs">
+
+          {solutions.map((solution, index) => {
             const Icon = solution.icon;
 
             return (
-              <article className="solution-card" key={solution.title}>
-                <div className="solution-icon">
-                  <Icon size={28} strokeWidth={1.8} />
-                </div>
+              <button
+                key={solution.title}
+                className={`solution-tab ${
+                  activeIndex === index ? "active" : ""
+                }`}
+                onClick={() => setActiveIndex(index)}
+                type="button"
+              >
+                <Icon
+                  size={20}
+                  strokeWidth={1.8}
+                />
 
-                <h3>{solution.title}</h3>
-
-                <p className="solution-text">{solution.text}</p>
-
-                <ul>
-                  {solution.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-
-                <a href="#contact" className="solution-link">
-                  Explore solution →
-                </a>
-              </article>
+                <span>
+                  {solution.shortTitle}
+                </span>
+              </button>
             );
           })}
+
+        </div>
+
+        <div className="solution-showcase">
+
+          <div className="solution-showcase-icon">
+            <ActiveIcon
+              size={42}
+              strokeWidth={1.7}
+            />
+          </div>
+
+          <div className="solution-showcase-content">
+
+            <p className="solution-showcase-label">
+              ORNEXIS SOLUTION
+            </p>
+
+            <h3>
+              {activeSolution.title}
+            </h3>
+
+            <p className="solution-showcase-text">
+              {activeSolution.text}
+            </p>
+
+            <div className="solution-feature-list">
+              {activeSolution.items.map((item) => (
+                <div
+                  className="solution-feature-item"
+                  key={item}
+                >
+                  <span className="solution-feature-dot" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="#contact"
+              className="solution-showcase-link"
+            >
+              Explore this solution
+              <span aria-hidden="true"> →</span>
+            </a>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
   );
 }

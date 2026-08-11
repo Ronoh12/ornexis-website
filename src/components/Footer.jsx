@@ -4,72 +4,89 @@ import {
   Phone,
 } from "lucide-react";
 import logo from "../assets/Tech_Ornexis.png";
-
 import "../styles/Footer.css";
 
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-brand">
-            <img
-            src={logo}
-            alt="ORNEXIS Technologies Ltd"
-            className="footer-logo"
-            />
 
-            <p>
-                Empowering businesses through secure,
-                reliable and innovative technology
-                solutions.
-            </p>
+      <div className="footer-container">
+
+        <div className="footer-brand">
+
+          <img
+            src={logo}
+            alt="ORNEXIS Technologies"
+            className="footer-logo"
+          />
+
+          <p>
+            Empowering businesses through secure,
+            reliable and innovative technology solutions.
+          </p>
+
         </div>
 
         <div className="footer-column">
           <h3>Company</h3>
 
-          <a href="#about">About</a>
+          <a href="#about">About ORNEXIS</a>
           <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+          <a href="#industries">Industries</a>
+          <a href="#portfolio">Solution Showcase</a>
         </div>
 
         <div className="footer-column">
           <h3>Solutions</h3>
 
-          <a href="#services">Cybersecurity</a>
-          <a href="#services">Cloud Solutions</a>
-          <a href="#services">IT Support</a>
-          <a href="#services">Networking</a>
+          <a href="#solutions">Cybersecurity</a>
+          <a href="#solutions">Cloud & Collaboration</a>
+          <a href="#solutions">Network & Infrastructure</a>
+          <a href="#solutions">Managed IT Support</a>
+          <a href="#solutions">Web & Business Systems</a>
+          <a href="#solutions">Branding & Print</a>
         </div>
 
         <div className="footer-contact">
           <h3>Contact</h3>
 
-          <p>
+          <a
+            href="mailto:info@ornexis.com"
+            className="contact-item"
+          >
             <Mail size={18} />
-            info@ornexis.com
-          </p>
+            <span>info@ornexis.com</span>
+          </a>
 
-          <p>
+          <a
+            href="tel:+254700000000"
+            className="contact-item"
+          >
             <Phone size={18} />
-            +254 700 000 000
-          </p>
+            <span>+254 700 000 000</span>
+          </a>
 
-          <p>
+          <div className="contact-item contact-location">
             <MapPin size={18} />
-            Nakuru, Kenya
-          </p>
+            <span>Nakuru, Kenya</span>
+          </div>
         </div>
+
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 ORNEXIS Technologies Ltd. All rights reserved.</p>
 
-        <div>
+        <p>
+          © 2026 ORNEXIS Technologies Ltd. All rights reserved.
+        </p>
+
+        <div className="footer-legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
         </div>
+
       </div>
+
     </footer>
   );
 }

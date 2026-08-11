@@ -5,81 +5,186 @@ import {
   CloudCog,
   Workflow,
   BadgeCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
+import { useState } from "react";
 
 import "../styles/WhyChoose.css";
 
 const reasons = [
   {
     icon: ShieldCheck,
-    title: "Security First",
+    title: "Security by Design",
     description:
-      "Every solution is designed with protection, resilience and business continuity in mind.",
+      "Security is built into every solution from the beginning, helping reduce risk and strengthen business resilience.",
   },
   {
     icon: Clock3,
-    title: "Fast Response",
+    title: "Responsive Service",
     description:
-      "We respond quickly to technology issues so your operations experience less disruption.",
+      "We act quickly, communicate clearly and work to minimize disruption when technology issues affect your business.",
   },
   {
     icon: Headset,
-    title: "Reliable Support",
+    title: "Dependable Support",
     description:
-      "Practical support for users, devices, networks and business-critical systems.",
+      "Practical support for users, systems and infrastructure with a focus on keeping your operations running smoothly.",
   },
   {
     icon: CloudCog,
-    title: "Modern Solutions",
+    title: "Future-Ready Solutions",
     description:
-      "Secure cloud, networking and digital tools built around your organization’s needs.",
+      "We design secure and scalable technology environments that can adapt as your organization grows and changes.",
   },
   {
     icon: Workflow,
-    title: "Business Focused",
+    title: "Business-Focused Thinking",
     description:
-      "We use technology to improve productivity, efficiency and long-term business growth.",
+      "We recommend technology based on real business needs, helping improve efficiency, productivity and long-term value.",
   },
   {
     icon: BadgeCheck,
-    title: "Trusted Partnership",
+    title: "Partnership You Can Trust",
     description:
-      "Clear communication, honest advice and dependable service throughout every project.",
+      "Clear communication, honest guidance and consistent delivery are at the heart of every ORNEXIS relationship.",
   },
 ];
 
 function WhyChoose() {
+  const [activeIndex, setActiveIndex] = useState(1);
+
+  const previousReason = () => {
+    setActiveIndex((current) =>
+      current === 0 ? reasons.length - 1 : current - 1
+    );
+  };
+
+  const nextReason = () => {
+    setActiveIndex((current) =>
+      current === reasons.length - 1 ? 0 : current + 1
+    );
+  };
+
+  const getReasonIndex = (offset) => {
+    return (
+      activeIndex +
+      offset +
+      reasons.length
+    ) % reasons.length;
+  };
+
+  const visibleReasons = [
+    {
+      reason: reasons[getReasonIndex(-1)],
+      position: "left",
+    },
+    {
+      reason: reasons[getReasonIndex(0)],
+      position: "center",
+    },
+    {
+      reason: reasons[getReasonIndex(1)],
+      position: "right",
+    },
+  ];
+
   return (
-    <section className="why-choose">
+    <section className="why-choose" id="why-choose">
+
       <div className="why-choose-container">
-        <div className="why-choose-heading">
-          <p className="section-tag">WHY CHOOSE ORNEXIS</p>
 
-          <h2>Technology expertise you can rely on.</h2>
+        <div className="why-choose-header">
 
-          <p>
-            We combine security, reliability and practical business thinking to
-            deliver technology solutions that create lasting value.
+          <p className="section-label">
+            WHY CHOOSE ORNEXIS
           </p>
+
+          <h2>
+            Technology expertise.
+            <br />
+            Partnership you can trust.
+          </h2>
+
+          <p className="why-choose-intro">
+            We combine technical expertise, practical business thinking and
+            dependable service to help organizations make confident technology
+            decisions and achieve lasting value.
+          </p>
+
         </div>
 
-        <div className="why-choose-grid">
-          {reasons.map((reason) => {
-            const Icon = reason.icon;
+        <div className="why-choose-carousel">
 
-            return (
-              <article className="reason-card" key={reason.title}>
-                <div className="reason-icon">
-                  <Icon size={26} strokeWidth={1.8} />
-                </div>
+          <button
+            className="why-arrow"
+            onClick={previousReason}
+            aria-label="Previous reason"
+            type="button"
+          >
+            <ChevronLeft size={26} />
+          </button>
 
-                <h3>{reason.title}</h3>
-                <p>{reason.description}</p>
-              </article>
-            );
-          })}
+          <div className="why-spotlight">
+
+            {visibleReasons.map(({ reason, position }) => {
+              const Icon = reason.icon;
+
+              return (
+                <article
+                  className={`reason-card reason-card-${position}`}
+                  key={`${reason.title}-${position}`}
+                >
+
+                  <div className="reason-icon">
+                    <Icon
+                      size={28}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+
+                  <h3>
+                    {reason.title}
+                  </h3>
+
+                  <p>
+                    {reason.description}
+                  </p>
+
+                </article>
+              );
+            })}
+
+          </div>
+
+          <button
+            className="why-arrow"
+            onClick={nextReason}
+            aria-label="Next reason"
+            type="button"
+          >
+            <ChevronRight size={26} />
+          </button>
+
         </div>
+
+        <div className="why-dots">
+
+          {reasons.map((reason, index) => (
+            <button
+              key={reason.title}
+              className={activeIndex === index ? "active" : ""}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`Show ${reason.title}`}
+              type="button"
+            />
+          ))}
+
+        </div>
+
       </div>
+
     </section>
   );
 }
